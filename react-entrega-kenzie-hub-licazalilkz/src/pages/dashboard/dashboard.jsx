@@ -26,7 +26,7 @@ export function Dashboard (){
             <div className={styles.contentDashboard}>
             <div className="container">
                     <div className={styles.contentLogo}>
-                    <img src="../../assets/Logo.svg" alt="kenzie" />
+                    <img src="../../../assets/Logo.png" alt="kenzie" />
                     <button onClick={logout}>Sair</button>
                 </div>
             </div>
@@ -47,7 +47,7 @@ export function Dashboard (){
             <div className={styles.contentDashboard}>
             <div className="container">
                     <div className={styles.contentLogo}>
-                    <img src="../../assets/Logo.svg" alt="kenzie" />
+                    <img src="../../../assets/Logo.png" alt="kenzie" />
                     <button onClick={logout}>Sair</button>
                 </div>
             </div>

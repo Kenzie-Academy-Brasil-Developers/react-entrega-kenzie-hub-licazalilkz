@@ -37,7 +37,7 @@ export function Login(){
     return(
         <div className={styles.loginContainer}>
             <div className={styles.contentLogo}>
-                <img src="../../assets/Logo.svg" alt="kenzie" />
+                <img src="../../../assets/Logo.png" alt="kenzie" />
             </div>
             <div className={styles.content}>
                 <form onSubmit={handleSubmit(submitLogin)}>

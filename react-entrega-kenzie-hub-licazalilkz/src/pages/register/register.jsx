@@ -36,7 +36,7 @@ export function Register(){
     return(
         <div className={styles.registerConteiner}> 
             <div className={styles.contentLogo}>
-                <img src="../../assets/Logo.svg" alt="kenzie" />
+                <img src="../../../assets/Logo.png" alt="kenzie" />
                 <button onClick={loginPage}>Voltar</button>
             </div>
 
