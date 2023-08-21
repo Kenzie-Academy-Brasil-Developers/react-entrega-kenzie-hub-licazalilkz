@@ -22,7 +22,6 @@ export function Register(){
         try{
             await api.post("/users", formData);
             toast.success("Bem vindo, conta criada com sucesso !");
-            await delay(3000);
             navigate("/");
         }catch(error){
             console.log(error);
