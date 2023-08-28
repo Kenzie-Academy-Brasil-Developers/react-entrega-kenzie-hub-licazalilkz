@@ -1,0 +1,45 @@
+import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {ToastContainer, toast} from "react-toastify";
+import { api } from "../../api/axios";
+
+
+
+export const UserContext = createContext({});
+
+export const UserProvide = ({children}) => {
+
+    const [userToken, setUserToken] = useState("")
+
+    const navigate = useNavigate();
+
+    const login = async(formData) => {
+        try{
+            const token = await api.post("/sessions", formData);
+            localStorage.setItem("@tokenKenzieHub", JSON.stringify(token.data.token));
+            setUserToken(token.data.token);
+            toast.success("Bem vindo de volta !");
+            navigate("/dashboard");
+        }catch(error){
+            toast.error("Ops, algo deu errado !");
+            console.log(error);
+        }
+    }
+
+    const register = async(formData) =>{
+        try{
+            await api.post("/users", formData);
+            toast.success("Bem vindo, conta criada com sucesso !");
+            navigate("/");
+        }catch(error){
+            console.log(error);
+            toast.error("Ops, algo deu errado ! :(");
+        }
+    }
+
+    return (
+        <>
+            <UserContext.Provider value={{login, register, userToken}}>{children}</UserContext.Provider>
+        </>
+    )
+}

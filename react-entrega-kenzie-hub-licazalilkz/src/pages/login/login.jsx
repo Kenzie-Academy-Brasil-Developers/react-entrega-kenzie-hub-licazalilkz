@@ -7,6 +7,8 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {api} from "../../../api/axios";
 import {ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.min.css';
+import { useContext } from "react";
+import { UserContext } from "../../context/userContext";
 
 
 export function Login(){
@@ -15,17 +17,10 @@ export function Login(){
         resolver: zodResolver(loginSchema),
     });
 
+    const { login: userLogin } = useContext(UserContext);
     
-    const submitLogin = async (formData) => {
-        try{
-            const token = await api.post("/sessions", formData);
-            localStorage.setItem("@tokenKenzieHub", JSON.stringify(token.data.token));
-            toast.success("Bem vindo de volta !");
-            navigate("/dashboard");
-        }catch(error){
-            toast.error("Ops, algo deu errado !");
-            console.log(error);
-        }
+    const submitLogin = (formData) => {
+        userLogin(formData);
     };
     
     const navigate = useNavigate();

@@ -12,13 +12,10 @@ export function Dashboard (){
 
     userProfile([setUserInfo]);
     
-    
     function logout(){
         localStorage.clear();
-        navigate("/");
+        window.location.reload(false);
     }
-    
-    console.log(userInfo.name);
 
     return(
         <>

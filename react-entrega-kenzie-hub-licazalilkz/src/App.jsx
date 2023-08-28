@@ -1,9 +1,12 @@
+import { UserProvide } from "./context/userContext"
 import { RouterMain } from "./router/routerMain"
 
 function App() {
   return (
     <>
-      <RouterMain/>
+      <UserProvide>
+        <RouterMain/>
+      </UserProvide>
     </>
   )
 }

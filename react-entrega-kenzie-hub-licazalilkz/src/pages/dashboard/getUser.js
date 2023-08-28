@@ -12,7 +12,6 @@ export const userProfile = async([setUserInfo]) => {
                 },
             });
             setUserInfo(response.data);
-            
         };
         getInfos();
     }, []);

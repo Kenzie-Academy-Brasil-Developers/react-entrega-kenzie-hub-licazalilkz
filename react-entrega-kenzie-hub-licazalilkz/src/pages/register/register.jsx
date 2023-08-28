@@ -7,6 +7,8 @@ import { api } from "../../../api/axios";
 import {useNavigate} from "react-router-dom";
 import {ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.min.css';
+import { UserContext } from "../../context/userContext";
+import { useContext } from "react";
 
 
 export function Register(){
@@ -17,16 +19,9 @@ export function Register(){
 
     const navigate = useNavigate();
     // console.log(errors)
-
-    const submit = async (formData) => {
-        try{
-            await api.post("/users", formData);
-            toast.success("Bem vindo, conta criada com sucesso !");
-            navigate("/");
-        }catch(error){
-            console.log(error);
-            toast.error("Ops, algo deu errado ! :(");
-        }
+    const { register: userRegister } = useContext(UserContext)
+    const submit =  (formData) => {
+        userRegister(formData)
     }
 
     function loginPage(){
