@@ -4,11 +4,11 @@ import {useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import { loginSchema } from "./formSchemaLogin";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {api} from "../../../api/axios";
 import {ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.min.css';
 import { useContext } from "react";
 import { UserContext } from "../../context/userContext";
+import imagem from "../../../assets/Logo.png"
 
 
 export function Login(){
@@ -32,7 +32,7 @@ export function Login(){
     return(
         <div className={styles.loginContainer}>
             <div className={styles.contentLogo}>
-                <img src="../../../assets/Logo.png" alt="kenzie" />
+                <img src={imagem} alt="kenzie" />
             </div>
             <div className={styles.content}>
                 <form onSubmit={handleSubmit(submitLogin)}>

@@ -9,7 +9,7 @@ import {ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.min.css';
 import { UserContext } from "../../context/userContext";
 import { useContext } from "react";
-
+import imagem from "../../../assets/Logo.png"
 
 export function Register(){
 
@@ -18,7 +18,6 @@ export function Register(){
     });
 
     const navigate = useNavigate();
-    // console.log(errors)
     const { register: userRegister } = useContext(UserContext)
     const submit =  (formData) => {
         userRegister(formData)
@@ -31,7 +30,7 @@ export function Register(){
     return(
         <div className={styles.registerConteiner}> 
             <div className={styles.contentLogo}>
-                <img src="../../../assets/Logo.png" alt="kenzie" />
+                <img src={imagem} alt="kenzie" />
                 <button onClick={loginPage}>Voltar</button>
             </div>
 

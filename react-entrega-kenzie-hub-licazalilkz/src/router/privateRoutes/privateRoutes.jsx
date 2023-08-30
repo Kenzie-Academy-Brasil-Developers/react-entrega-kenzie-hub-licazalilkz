@@ -4,7 +4,5 @@ import { UserContext } from "../../context/userContext"
 
 export const PrivateRoutes = () => {
     const {userToken} = useContext(UserContext);
-    console.log(userToken);
-
-    return !!userToken ? <Outlet /> : <Navigate to ="/"/>;
+    return userToken ? <Outlet /> : <Navigate to ="/"/>;
 }

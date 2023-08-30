@@ -5,6 +5,5 @@ import { UserContext } from "../../context/userContext"
 
 export const LoggedRoutes = () => {
     const {userToken} = useContext(UserContext);
-    console.log(userToken);
     return userToken ? <Navigate to="/dashboard"/> : <Outlet/>;
 }

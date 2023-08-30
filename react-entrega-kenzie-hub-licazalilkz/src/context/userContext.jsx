@@ -1,6 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {ToastContainer, toast} from "react-toastify";
+import {toast} from "react-toastify";
 import { api } from "../../api/axios";
 
 
@@ -8,8 +8,9 @@ import { api } from "../../api/axios";
 export const UserContext = createContext({});
 
 export const UserProvide = ({children}) => {
+    const tokenStorage = localStorage.getItem("@tokenKenzieHub");
 
-    const [userToken, setUserToken] = useState("")
+    const [userToken, setUserToken] = useState( tokenStorage ?JSON.parse(tokenStorage) : null);
 
     const navigate = useNavigate();
 

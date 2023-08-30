@@ -27,7 +27,6 @@ export const Input = forwardRef(({nome, placeholder, type, required, ...rest}, r
                     <div className={styles.content}>
                         <label>{nome}</label>
                         <input type={type} placeholder={placeholder} required={true} ref={ref} {...rest} />
-                        {/* <span>msg de erro</span> */}
                     </div>
                 )
             }
