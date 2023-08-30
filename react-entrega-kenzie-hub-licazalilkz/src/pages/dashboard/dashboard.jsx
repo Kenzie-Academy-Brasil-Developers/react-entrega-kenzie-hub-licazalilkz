@@ -14,7 +14,7 @@ export function Dashboard (){
     
     function logout(){
         localStorage.removeItem("@tokenKenzieHub");
-        window.location.reload(false);
+        navigate("/");
     }
 
     return(
