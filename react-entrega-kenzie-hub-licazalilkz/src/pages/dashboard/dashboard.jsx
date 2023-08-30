@@ -3,18 +3,24 @@ import styles from "./styles.module.scss"
 import { useNavigate } from "react-router-dom";
 import { userProfile } from "./getUser";
 import imagem from "../../../assets/Logo.png";
+import { useContext } from "react";
+import { UserContext } from "../../context/userContext";
+
 
 export function Dashboard (){
     const [userInfo, setUserInfo] = useState("");
 
     const navigate = useNavigate();
 
+    const {setUserToken} = useContext(UserContext);
+
+
 
     userProfile([setUserInfo]);
     
     function logout(){
         localStorage.removeItem("@tokenKenzieHub");
-        navigate("/");
+        setUserToken(null);
     }
 
     return(
