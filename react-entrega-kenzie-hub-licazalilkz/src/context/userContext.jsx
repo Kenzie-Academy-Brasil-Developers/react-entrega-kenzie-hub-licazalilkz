@@ -11,7 +11,6 @@ export const UserProvide = ({children}) => {
     const tokenStorage = localStorage.getItem("@tokenKenzieHub");
 
     const [userToken, setUserToken] = useState( tokenStorage ?JSON.parse(tokenStorage) : null);
-
     const navigate = useNavigate();
 
     const login = async(formData) => {

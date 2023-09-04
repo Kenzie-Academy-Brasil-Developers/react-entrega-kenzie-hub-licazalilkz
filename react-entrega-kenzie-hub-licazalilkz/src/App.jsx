@@ -1,3 +1,4 @@
+import { ModalProvider } from "./context/modalContext"
 import { UserProvide } from "./context/userContext"
 import { RouterMain } from "./router/routerMain"
 
@@ -5,7 +6,9 @@ function App() {
   return (
     <>
       <UserProvide>
-        <RouterMain/>
+        <ModalProvider>
+          <RouterMain/>
+        </ModalProvider>
       </UserProvide>
     </>
   )
