@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { api } from "../../api/axios";
+import { useNavigate } from "react-router-dom";
 
 
 export const modalContext = createContext({});
@@ -7,6 +8,7 @@ export const modalContext = createContext({});
 export const ModalProvider = ({children}) =>{
     const token = JSON.parse(localStorage.getItem("@tokenKenzieHub"));
     const [techId, setTechId] = useState(null);
+    const navigate = useNavigate();
 
     function getTechId(id){
         setTechId(id);
@@ -20,7 +22,7 @@ export const ModalProvider = ({children}) =>{
             }
         })
         setTechId(null);
-        window.location.reload();
+        navigate("/");
     };
     const updateTech = async(formData) => {
         const {data} = await api.put(`/users/techs/${techId}`, formData,{
@@ -29,7 +31,7 @@ export const ModalProvider = ({children}) =>{
             }
         })
         setTechId(null);
-        window.location.reload();
+        navigate("/");
     };
     const deleteTech = async() => {
         const {data} = await api.delete(`/users/techs/${techId}`,{
@@ -38,7 +40,7 @@ export const ModalProvider = ({children}) =>{
             }
         })
         setTechId(null);
-        window.location.reload();
+        navigate("/");
     };
 
     return(
